@@ -1,0 +1,9 @@
+#secrets
+.env
+
+#modules
+/node_modules/
+
+#misc files
+*.py
+*.txt
