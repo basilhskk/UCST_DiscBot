@@ -29,21 +29,33 @@ bot.on('ready', () => {
 });
 
 bot.on('message', msg => {
-  if (msg.content === 'ping') {
-    msg.reply('pong');
-    msg.channel.send('pong');
-  }
-
 	/* KOPSOU COMMAND */
- else if (msg.content.startsWith("!kopsou")){
+ if (msg.content.startsWith("!kopsou")){
 
     const taggedUser = msg.mentions.users.first()
-
+	
     msg.channel.send(`<@${taggedUser.id}> :scissors:`).then((message)=>{
       message.react("✂️")
     }).catch((err)=>{
       console.log(err)
     })
+
+  }
+
+  else if (msg.content.startsWith("!krousmata")){
+  
+	let date_ob = new Date();
+
+	let date = ("0" + date_ob.getDate()).slice(-2);
+
+	let month = ("0" + (date_ob.getMonth() + 1)).slice(-2);
+
+	let year = date_ob.getFullYear();
+
+	var site = "https://covid19.gov.gr/wp-content/uploads/stat_date/"+year+"-"+month+"-"+ date+".jpg"
+
+	msg.channel.send(site)
+
 
   }
 
@@ -53,6 +65,7 @@ bot.on('message', msg => {
     let help = "**HELP**"+`\`\`\`bash
 !curse 1-15 Responds with X random curse words
 !kopsou @mention
+!krousmata Responds with Covid19 Victims of the day in Greece
 !shell ip port Responds in pm with basic reverse shells
 \`\`\``
 
