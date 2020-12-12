@@ -55,7 +55,8 @@ bot.on('message', msg => {
 	var site = "https://covid19.gov.gr/wp-content/uploads/stat_date/"+year+"-"+month+"-"+ date+".jpg"
 
 	msg.channel.send(site)
-
+	var gif = "https://media1.tenor.com/images/5872d9ff6a5396b0d2b7f516689a3312/tenor.gif?itemid=16558381"
+	msg.channel.send(gif)
 
   }
 
